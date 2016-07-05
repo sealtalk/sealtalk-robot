@@ -1,0 +1,45 @@
+{
+  "name": "sealtalk-robot",
+  "version": "1.0.0",
+  "description": "A chat robot based on message route feature of RongCloud. 基于融云消息路由功能实现的聊天机器人。",
+  "main": "build/src/index.js",
+  "keywords": [
+    "SealTalk",
+    "RongCloud",
+    "IM",
+    "Robot"
+  ],
+  "scripts": {
+    "test": "node_modules/istanbul/lib/cli.js cover node_modules/jasmine/bin/jasmine.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sealtalk/sealtalk-robot.git"
+  },
+  "author": "Ariel Yang <arielyang@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sealtalk/sealtalk-robot/issues"
+  },
+  "homepage": "https://github.com/sealtalk/sealtalk-robot#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "debug": "^2.2.0",
+    "express": "^4.14.0",
+    "lru-cache": "^4.0.1",
+    "mysql": "^2.11.1",
+    "request": "^2.72.0",
+    "rongcloud-sdk": "git+https://github.com/rongcloud/server-sdk-nodejs.git"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-coffee": "^0.13.0",
+    "grunt-contrib-copy": "^0.8.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-nodemon": "^0.4.0",
+    "istanbul": "^0.4.0",
+    "jasmine": "^2.3.2",
+    "supertest": "^1.1.0"
+  }
+}

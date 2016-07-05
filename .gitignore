@@ -1,0 +1,9 @@
+node_modules
+coverage
+build
+dist
+conf.dev.coffee
+test.coffee
+.DS_Store
+**/*.log
+**/*.bak

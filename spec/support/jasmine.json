@@ -1,0 +1,10 @@
+{
+    "spec_dir": "build/spec",
+    "spec_files": [
+        "**/apiSpec.js",
+        "**/funcSpec.js"
+    ],
+    "helpers": [
+        "helpers/helper.js"
+    ]
+}
