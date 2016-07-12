@@ -30,9 +30,7 @@ app.post '/receive', (req, res) ->
 
           responseMessageContent = invokeTuling req.body.fromUserId, content
 
-          Utility.sendMessage req.body.toUserId, req.body.fromUserId, responseMessageContent, (success, resultText) ->
-        else
-          Utility.sendMessage req.body.toUserId, req.body.fromUserId, "I only recognize text message.", (success, resultText) ->
+          Utility.sendMessage req.body.toUserId, req.body.fromUserId, responseMessageContent
   else
     res.status(400).send 'Invalid invoke!'
 
@@ -52,7 +50,7 @@ app.post '/send', (req, res) ->
     if userId is null
       return res.status(404).send 'Can not find userId by this phone.'
 
-    Utility.sendMessage Config.ROBOT_USER_ENCODED_ID, userId, content, (success, resultText) ->
+    Utility.sendMessage Config.ROBOT_USER_ENCODED_ID, Utility.numberToString(userId), content, (success, resultText) ->
       if not success
         return res.status(500).send resultText
 
