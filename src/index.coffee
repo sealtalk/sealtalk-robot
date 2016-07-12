@@ -89,18 +89,19 @@ invokeTuling = (userId, message) ->
 
   log 'Requesting Tuling robot API'
 
-  request "http://www.tuling123.com/openapi/api?key=#{Config.TULING_API_KEY}&userid=#{userId}&info=#{message}", (error, response, body) ->
+  new Promise (resolve, reject) ->
+    request "http://www.tuling123.com/openapi/api?key=#{Config.TULING_API_KEY}&userid=#{userId}&info=#{message}", (error, response, body) ->
 
-    if not error
-      log 'Tuling robot response:', body
+      if not error
+        log 'Tuling robot response:', body
 
-      responseBody = JSON.parse body
+        responseBody = JSON.parse body
 
-      return responseBody.text + (if responseBody.url then ' ' + responseBody.url else '')
-    else
-      logError 'Tuling robot API error response:', error
+        resolve responseBody.text + (if responseBody.url then ' ' + responseBody.url else '')
+      else
+        logError 'Tuling robot API error response:', error
 
-      return 'Robot has stopped working this time.'
+        reject 'Robot has stopped working this time.'
 
 getUserIdFromDB = (phone, callback) ->
   log 'Query userId by phone number:', phone
@@ -145,3 +146,4 @@ server = app.listen Config.SERVER_PORT, ->
     app.get('env')
 
 module.exports = app
+module.exports.invokeTuling = invokeTuling
