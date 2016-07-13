@@ -28,9 +28,9 @@ app.post '/receive', (req, res) ->
 
           # if /^(.+)的(电话|手机)/.test content
 
-          responseMessageContent = invokeTuling req.body.fromUserId, content
-
-          Utility.sendMessage req.body.toUserId, req.body.fromUserId, responseMessageContent
+          invokeTuling req.body.fromUserId, content
+          .then (responseMessageContent) ->
+            Utility.sendMessage req.body.toUserId, req.body.fromUserId, responseMessageContent
   else
     res.status(400).send 'Invalid invoke!'
 
