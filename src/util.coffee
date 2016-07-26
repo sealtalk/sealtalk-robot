@@ -47,6 +47,6 @@ class Utility
         callback false, resultText if callback
         return
 
-      callback true
+      callback true if callback
 
 module.exports = Utility
